@@ -1,0 +1,63 @@
+BenchmarkDotNet=v0.13.2, OS=Windows 10 (10.0.19045.2251)
+Intel Core i3-10105 CPU 3.70GHz, 1 CPU, 8 logical and 4 physical cores
+.NET SDK=7.0.100
+  [Host]     : .NET 7.0.0 (7.0.22.51805), X64 RyuJIT AVX2
+  DefaultJob : .NET 7.0.0 (7.0.22.51805), X64 RyuJIT AVX2
+
+
+|                  Method |           Mean |         Error |        StdDev |
+|------------------------ |---------------:|--------------:|--------------:|
+|    StaticFieldWriteLine | 78,688.7240 ns | 1,324.6054 ns | 1,239.0367 ns |
+|          GetStaticField |      0.7183 ns |     0.0137 ns |     0.0128 ns |
+| StaticPropertyWriteLine | 78,382.1193 ns |   466.6520 ns |   413.6749 ns |
+|       GetStaticProperty |      1.4265 ns |     0.0042 ns |     0.0033 ns |
+
+// * Hints *
+Outliers
+  Benchmarks.StaticPropertyWriteLine: Default -> 1 outlier  was  removed (79.53 us)
+  Benchmarks.GetStaticProperty: Default       -> 3 outliers were removed (4.67 ns..4.68 ns)
+
+
+
+
+BenchmarkDotNet=v0.13.2, OS=Windows 10 (10.0.19045.2251)
+Intel Core i3-10105 CPU 3.70GHz, 1 CPU, 8 logical and 4 physical cores
+.NET SDK=7.0.100
+  [Host]     : .NET 7.0.0 (7.0.22.51805), X64 RyuJIT AVX2
+  DefaultJob : .NET 7.0.0 (7.0.22.51805), X64 RyuJIT AVX2
+
+
+|                  Method |           Mean |       Error |      StdDev |
+|------------------------ |---------------:|------------:|------------:|
+|    StaticFieldWriteLine | 78,926.5462 ns | 820.8557 ns | 767.8289 ns |
+|          GetStaticField |      0.7226 ns |   0.0067 ns |   0.0056 ns |
+| StaticPropertyWriteLine | 78,967.1973 ns | 572.5583 ns | 535.5714 ns |
+|       GetStaticProperty |      1.4259 ns |   0.0056 ns |   0.0050 ns |
+
+// * Hints *
+Outliers
+  Benchmarks.GetStaticField: Default    -> 2 outliers were removed, 4 outliers were detected (3.93 ns, 3.93 ns, 3.95 ns, 3.96 ns)
+  Benchmarks.GetStaticProperty: Default -> 1 outlier  was  removed (4.67 ns)
+
+
+
+
+BenchmarkDotNet=v0.13.2, OS=Windows 10 (10.0.19045.2251)
+Intel Core i3-10105 CPU 3.70GHz, 1 CPU, 8 logical and 4 physical cores
+.NET SDK=7.0.100
+  [Host]     : .NET 7.0.0 (7.0.22.51805), X64 RyuJIT AVX2
+  DefaultJob : .NET 7.0.0 (7.0.22.51805), X64 RyuJIT AVX2
+
+
+|                  Method |           Mean |         Error |        StdDev |
+|------------------------ |---------------:|--------------:|--------------:|
+|    StaticFieldWriteLine | 79,488.1315 ns | 1,163.3214 ns | 1,088.1716 ns |
+|          GetStaticField |      0.7186 ns |     0.0095 ns |     0.0080 ns |
+| StaticPropertyWriteLine | 79,427.7400 ns |   262.6032 ns |   219.2856 ns |
+|       GetStaticProperty |      1.4341 ns |     0.0060 ns |     0.0053 ns |
+
+// * Hints *
+Outliers
+  Benchmarks.GetStaticField: Default          -> 2 outliers were removed (3.97 ns, 4.49 ns)
+  Benchmarks.StaticPropertyWriteLine: Default -> 2 outliers were removed (80.36 us, 80.46 us)
+  Benchmarks.GetStaticProperty: Default       -> 1 outlier  was  removed (4.68 ns)
