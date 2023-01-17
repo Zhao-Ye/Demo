@@ -2,6 +2,7 @@
 using System.Collections.Concurrent;
 using System.ComponentModel;
 using System.Reflection;
+using System.Runtime.InteropServices;
 
 namespace ConsoleApp1;
 
@@ -15,6 +16,9 @@ public class Benchmarks
 
     [Benchmark]
     public string EnumClass() => TestEnumClass.Test.ToString();
+    
+    [Benchmark]
+    public string EnumStruct() => TestEnumStruct.Test.ToString();
 
     public string GetDescription<T>(T value)
     {
@@ -54,4 +58,16 @@ public class TestEnumClass
     public override string ToString() => _value;
 
     public static readonly TestEnumClass Test = new TestEnumClass("TestEnumClass");
+}
+
+public readonly struct TestEnumStruct
+{
+    public static TestEnumStruct Test { get; } = new TestEnumStruct("TestEnumStruct");
+
+    private readonly string _value;
+    private TestEnumStruct(string value)
+    {
+        _value = value;
+    }
+    public override string ToString() => _value;
 }
