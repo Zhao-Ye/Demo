@@ -12,6 +12,9 @@ public class Benchmarks
     public string GetDescription() => GetDescription(TestEnum.Test);
 
     [Benchmark]
+    public string EnumToString() => TestEnum.Test.ToString();
+
+    [Benchmark]
     public string GetDescriptionByConcurrentDictionary() => GetDescriptionByConcurrentDictionary(TestEnum.Test);
 
     [Benchmark]
